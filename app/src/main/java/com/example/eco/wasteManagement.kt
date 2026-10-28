@@ -21,9 +21,9 @@ class wasteManagement: AppCompatActivity() {
 
         setContentView(R.layout.waste_management)
 
-        waste1 = findViewById(R.id.waste1)
-        waste2 = findViewById(R.id.waste3)
-        waste3 = findViewById(R.id.waste2)
+        waste1 = findViewById(R.id.pollution1)
+        waste2 = findViewById(R.id.pollution2)
+        waste3 = findViewById(R.id.pollution3)
         val backBtn = findViewById<Button>(R.id.backBtn)
         backBtn.setOnClickListener {
             val intent = Intent(this, home::class.java)
