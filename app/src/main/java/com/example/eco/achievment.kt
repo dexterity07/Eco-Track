@@ -1,33 +1,21 @@
 package com.example.eco
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.view.isVisible
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [achievment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class achievment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+
+    private lateinit var a1: ImageView
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,23 +25,41 @@ class achievment : Fragment() {
         return inflater.inflate(R.layout.fragment_achievment, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment achievment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            achievment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+
+     a1 = view.findViewById<ImageView>(R.id.a1)
+
+
+
+
     }
+
+    override fun onResume() {
+        super.onResume()
+        achievementUpdate()
+    }
+    //achievementupdate
+    fun achievementUpdate(){
+        val prefs = requireContext().getSharedPreferences("wasteList", Context.MODE_PRIVATE)
+        val ach1 = prefs.getBoolean("waste1", false)
+        val ach2 = prefs.getBoolean("waste2", false)
+        val ach3 = prefs.getBoolean("waste3", false)
+
+        val achievement = listOf(
+            ach3, ach1, ach2
+        ).count {it}
+
+        when (achievement) {
+            3 ->
+            a1.visibility = View.VISIBLE
+
+        }
+    }
+
+
+
+
 }

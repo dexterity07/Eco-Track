@@ -12,7 +12,7 @@ class waterReservation : AppCompatActivity(){
     private lateinit var water3: CheckBox
 
     private val prefs by lazy {
-        getSharedPreferences("waterList", MODE_PRIVATE)
+        getSharedPreferences("wasteList", MODE_PRIVATE)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

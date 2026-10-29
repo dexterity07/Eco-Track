@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eco.data.Task
 import com.example.eco.data.TaskViewModel
 
 class list : Fragment() {
@@ -21,7 +22,8 @@ private lateinit var mTaskViewModel: TaskViewModel
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
-        val adapter = ListAdapter()
+        val adapter = ListAdapter(requireContext() )
+
         val recyclerView = view?.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(requireContext())

@@ -28,6 +28,8 @@
 
 
         <activity android:name=".wasteManagement"/>
+        <activity android:name=".waterReservation"/>
+        <activity android:name=".reducePollution"/>
 
 
     </application>

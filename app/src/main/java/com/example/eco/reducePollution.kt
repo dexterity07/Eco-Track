@@ -18,7 +18,7 @@ class reducePollution : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.waste_management)
+        setContentView(R.layout.pollution)
 
         pollution1 = findViewById(R.id.pollution1)
         pollution2 = findViewById(R.id.pollution2)

@@ -28,27 +28,47 @@ class customize : Fragment() {
 
         val addBtn = view.findViewById<Button>(R.id.addBtn)
         addBtn.setOnClickListener {
+
             insertDataToDatabase(view)
+        }
+        val btn2 = view.findViewById<Button>(R.id.btn2)
+        btn2.setOnClickListener {
+
+            insertDataToDatabase2(view)
         }
 
         return view
     }
 
     private fun insertDataToDatabase(view: View) {
-        val firstTaskEt = view.findViewById<EditText>(R.id.firstTask)
+       // val firstTaskEt = view.findViewById<EditText>(R.id.firstTask)
 
-        val firstTask = firstTaskEt.text.toString()
-
-        if (inputCheck(firstTask)) {
-            val task = Task(0, firstTask)
+        val firstTask = "SAPATOS"//firstTaskEt.text.toString()
+        val quantity = 1
+        if (firstTask!=null) {
+            val task = Task(0, firstTask, quantity)
             mTaskViewModel.insert(task)
             Toast.makeText(requireContext(), "Added successfully", Toast.LENGTH_LONG).show()
         } else {
-            Toast.makeText(requireContext(), "Plese fill your task", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Please fill your task", Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun inputCheck(firstTask: String): Boolean {
-        return !(TextUtils.isEmpty(firstTask))
+    private fun insertDataToDatabase2(view: View) {
+        //val firstTaskEt = view.findViewById<EditText>(R.id.firstTask)
+
+        val firstTask2 = "KAHOY"//firstTaskEt.text.toString()
+        val quantity = 1
+        if (firstTask2!=null) {
+            val task = Task(0, firstTask2, quantity)
+            mTaskViewModel.insert(task)
+            Toast.makeText(requireContext(), "Added successfully", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(requireContext(), "Please fill your task", Toast.LENGTH_LONG).show()
+        }
     }
+
+   /* private fun inputCheck(firstTask: String): Boolean {
+        return !(TextUtils.isEmpty(firstTask))
+    }*/
 }
